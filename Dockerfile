@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y sudo sshfs bsdutils python3-dev \
 USER angr
 
 # first clone, then install (for quicker builds from cache)
-ARG EXTRA_REPOS="fidget angrop driller fuzzer tracer compilerex povsim rex farnsworth patcherex colorguard common-utils network_poll_creator patch_performance worker meister ambassador scriba"
+ARG EXTRA_REPOS="fidget angrop driller fuzzer tracer compilerex povsim rex farnsworth patcherex colorguard common-utils network_poll_creator patch_performance worker meister ambassador scriba angr-targets"
 RUN ~/angr-dev/setup.sh -C $EXTRA_REPOS && \
     ~/angr-dev/setup.sh -v -w -e angr peewee $EXTRA_REPOS && rm -rf wheels && \
     ~/angr-dev/setup.sh -v -w -p angr-pypy peewee $EXTRA_REPOS && rm -rf wheels && \
